@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will You Be My Valentine? 💖</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffd6e8, #d6f0ff);
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .container {
+        background: #fff0f6;
+        padding: 40px;
+        border-radius: 25px;
+        box-shadow: 0 0 25px rgba(255, 105, 180, 0.4);
+        text-align: center;
+        max-width: 400px;
+    }
+
+    h1 {
+        color: #ff4d88;
+        font-size: 32px;
+    }
+
+    p {
+        font-size: 18px;
+        color: #555;
+    }
+
+    .buttons {
+        margin-top: 30px;
+        position: relative;
+        height: 120px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+    }
+
+    #yesBtn {
+        background: #ff69b4;
+        color: white;
+        position: static;
+    }
+
+    #noBtn {
+        background: #add8e6;
+        color: #333;
+        position: absolute;
+    }
+
+    /* Love Letter */
+    .love-letter {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(255, 192, 203, 0.9);
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        overflow-y: auto;
+        padding: 20px;
+    }
+
+    .letter-box {
+        background: white;
+        padding: 40px;
+        border-radius: 25px;
+        text-align: center;
+        animation: pop 0.6s ease;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0); }
+        100% { transform: scale(1); }
+    }
+
+    .letter-box h2 {
+        color: #ff1493;
+        font-size: 28px;
+    }
+
+    /* Fireworks */
+    .firework {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: pink;
+        border-radius: 50%;
+        animation: explode 1.2s linear infinite;
+    }
+
+    @keyframes explode {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(6);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Hey My Love 💕</h1>
+    <p>
+        You make my world softer, brighter & happier 🌸  
+        So today I have one very important question 🥹💖
+    </p>
+
+    <h1>Will you be my Valentine? 💘</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">YES 💖🥰</button>
+        <button id="noBtn">NO 😝</button>
+    </div>
+</div>
+
+<!-- Love Letter -->
+<div class="love-letter" id="loveLetter">
+    <div class="letter-box">
+        <h2>I Love You Jaan 💌✨</h2>
+        <img src="../ChatGPT Image Feb 4, 2026, 11_22_15 PM.png" alt="Our Love 💕" style="max-width: 100%; border-radius: 15px; margin: 15px 0;">
+        <p>
+            You are my favorite person,  
+            my peace, my happiness, my forever 💞  
+            Thank you for being YOU 🥹💕
+        </p>
+        <p>Love you my cutiepie 💕</p>
+        <p>Please don't give up on me 🥹💖</p>
+        <p>My forever Soulmate 🌸</p>
+        <p>Happy Valentine's Day 💖🌹</p>
+        
+<audio id="bgMusic" loop preload="auto">
+        <source src="../Tum Hi Ho Song Download.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const loveLetter = document.getElementById("loveLetter");
+
+    // Move NO button
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * 250;
+        const y = Math.random() * 80;
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+// YES button action
+    yesBtn.addEventListener("click", () => {
+        loveLetter.style.display = "flex";
+        startFireworks();
+        document.getElementById("bgMusic").play();
+    });
+
+    function startFireworks() {
+        for (let i = 0; i < 30; i++) {
+            const firework = document.createElement("div");
+            firework.className = "firework";
+            firework.style.left = Math.random() * window.innerWidth + "px";
+            firework.style.top = Math.random() * window.innerHeight + "px";
+            firework.style.background = `hsl(${Math.random()*360},100%,75%)`;
+            document.body.appendChild(firework);
+
+            setTimeout(() => {
+                firework.remove();
+            }, 1200);
+        }
+    }
+</script>
+
+</body>
+</html>
